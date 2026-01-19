@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedEasy - Splash</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/welcome.css">
+</head>
+<body>
+    <div class="app-shell splash-screen">
+        <div class="pattern-overlay"></div>
+        
+        <main class="splash-content">
+            <div class="logo-container">
+                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="9.5" y="2" width="5" height="20" rx="1" fill="#6eeed6"/>
+                    <rect x="2" y="9.5" width="20" height="5" rx="1" fill="#6eeed6"/>
+                </svg>
+            </div>
+
+            <div class="brand-text">
+                <h1 class="main-title">MedEasy</h1>
+                <p class="sub-title">medicine made easy</p>
+            </div>
+
+            <div class="action-container">
+                <a href="{{ url_for('auth.sign_up')}}" class="btn-get-started">Get Started</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

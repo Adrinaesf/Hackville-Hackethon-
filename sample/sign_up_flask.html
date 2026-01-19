@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="signup-container">
+
+    <!-- Page Title -->
+    <h1 class="page-title">Sign up</h1>
+
+    <form method="POST">
+
+        <!-- Name Fields -->
+        <div class="name-fields">
+
+            <!-- First Name -->
+            <div class="form-group firstName">
+                <label class="text-4" for="firstName">First name</label>
+                <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="Enter first name"
+                />
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group lastName">
+                <label for="lastName">Last name</label>
+                <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Enter last name"
+                />
+            </div>
+
+        </div>
+
+        <!-- Email -->
+        <div class="form-group email">
+            <label for="email">Email Address</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter email address"
+            />
+        </div>
+
+        <!-- Password -->
+        <div class="form-group password1">
+            <label for="password1">Password</label>
+            <div class="password-input">
+                <input
+                    type="password"
+                    id="password1"
+                    name="password1"
+                    placeholder="Enter password"
+                />
+                <!-- Eye icon placeholder -->
+                <span class="toggle-password"></span>
+            </div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group password2">
+            <label for="password2">Confirm Password</label>
+            <div class="password-input">
+                <input
+                    type="password"
+                    id="password2"
+                    name="password2"
+                    placeholder="Re-enter password"
+                />
+                <!-- Eye icon placeholder -->
+                <span class="toggle-password"></span>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">
+            SIGN UP
+        </button>
+
+    </form>
+
+    <!-- Divider -->
+    <div class="divider">
+        <hr>
+        <span>or sign up with</span>
+        <hr>
+    </div>
+
+    <!-- Social Sign Up -->
+    <div class="social-signup">
+
+        <button class="social-btn facebook">
+            <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook">
+            Facebook
+        </button>
+
+        <button class="social-btn google">
+            <img src="{{ url_for('static', filename='images/google.png') }}" alt="Google">
+            Google
+        </button>
+
+    </div>
+
+</div>
+{% endblock %}
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Clean & Professional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/signup.css">
+</head>
+    
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">Sign up</h1>
+        </header>
+
+        <form method="POST" class="signup-form">
+            <div class="row">
+                <div class="field-group">
+                    <label for="first_name">First name</label>
+                    <input type="text" id="first_name" name="first_name" required class="input-field">
+                </div>
+                <div class="field-group">
+                    <label for="last_name">Last name</label>
+                    <input type="text" id="last_name" name="last_name" required class="input-field">
+                </div>
+            </div>
+<form>
+    
+            <div class="field-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter email address" required class="input-field">
+            </div>
+
+            <div class="field-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required class="input-field">
+            </div>
+
+            <div class="field-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter Password" required class="input-field">
+            </div>
+
+            <button type="submit" class="submit-btn">SIGN UP</button>
+        </form>
+
+        <div class="divider">
+            <span class="divider-text">or sign up with</span>
+        </div>
+
+        <div class="social-links">
+            <button type="button" class="social-btn facebook">
+                <div class="icon-box fb-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </div>
+                <span>Facebook</span>
+            </button>
+            <button type="button" class="social-btn google">
+                <svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="#EA4335" d="M5.266 9.765A7.077 7.077 0 0 1 12 4.909c1.69 0 3.218.6 4.418 1.582L19.91 3C17.782 1.145 15.055 0 12 0 7.27 0 3.198 2.698 1.24 6.65l4.026 3.115Z"/>
+                    <path fill="#34A853" d="M16.04 18.013c-1.09.693-2.459 1.078-4.04 1.078-2.614 0-4.834-1.764-5.622-4.138l-4.056 3.122C4.277 21.988 7.846 24 12 24c3.117 0 5.843-1.043 7.796-2.822l-3.756-3.165Z"/>
+                    <path fill="#4285F4" d="M23.49 12.273c0-.827-.074-1.623-.21-2.386H12v4.514h6.44c-.277 1.493-1.12 2.76-2.39 3.612l3.756 3.165c2.195-2.028 3.484-5.018 3.484-8.905Z"/>
+                    <path fill="#FBBC05" d="M6.378 14.953a7.07 7.07 0 0 1 0-4.225l-4.026-3.115C1.53 9.172 1.143 10.53 1.143 12c0 1.47.387 2.828 1.05 4.077l4.185-3.124Z"/>
+                </svg>
+                <span>Google</span>
+            </button>
+        </div>
+    </div>
+</body>
+</html>

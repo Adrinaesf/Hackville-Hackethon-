@@ -1,0 +1,189 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 440px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 12.5%;
+    width: 75%;
+    height: 4px;
+    background-color: #111827;
+    border-radius: 2px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+    gap: 16px;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f2937;
+    margin-left: 4px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #d1d5db;
+    border-radius: 32px;
+    background-color: #ebebeb;
+    font-size: 16px;
+    color: #374151;
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #43A08C;
+    background-color: #ffffff;
+}
+
+.submit-btn {
+    margin-top: 10px;
+    padding: 18px;
+    background-color: #43A08C;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.submit-btn:hover {
+    background-color: #3a8b7a;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+.divider {
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid #111827;
+}
+
+.divider-text {
+    padding: 0 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    white-space: nowrap;
+}
+
+.social-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #6b7280;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.social-btn:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.icon-box {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.fb-icon {
+    background-color: #3b5998;
+}
+
+.icon-svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    .row {
+        flex-direction: column;
+    }
+    .title {
+        font-size: 36px;
+    }
+}

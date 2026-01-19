@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedEasy - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/homescreen.css">
+</head>
+<body>
+    <div class="app-shell dashboard-screen">
+        <header class="top-bar">
+            <div class="pattern-overlay"></div>
+            <div class="profile-container">
+                <div class="logout">
+                    <button class="logout" onclick="window.location.href='{{ url_for('auth.login') }}'"> Logout </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-wrapper">
+            <div class="greeting-section">
+                <h1 class="user-greeting">Hi, {{ first_name }}!</h1>
+                <p class="status-message">Today you're taking {{ total_taken }} pill(s)</p>
+            </div>
+
+            <div class="dashboard-cards">
+                {% for drug in prescriptions %}
+                <div class="dose-card">
+                    <div class="dose-details">
+                        <h3 class="drug-name">{{ drug.drug_name }}</h3>
+                        <div class="aesthetic-counter" data-drug="{{ drug.drug_name }}">
+                            <button class="count-btn decrement" aria-label="decrease"><span>−</span></button>
+                            <span class="count-display">{{ drug.taken_today if drug.taken_today else 0 }} / {{ drug.per_day }}</span>
+                            <button class="count-btn increment" aria-label="increase"><span>+</span></button>
+                        </div>
+                    </div>
+                    <div class="pill-graphic">
+                        <div class="pill-half white"></div>
+                        <div class="pill-half gray"></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </main>
+
+        <nav class="floating-nav">
+            <div class="nav-item active">
+                <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="2.5" fill="none">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    <path d="M9 12h6"></path><path d="M9 16h6"></path><path d="M9 20h6"></path>
+                </svg>
+                <span>My Dashboard</span>
+            </div>
+            <a href="{{ url_for('perscriptions') }}" class="nav-item">
+                <div class="pill-icon-nav"></div>
+                <span>My Prescriptions</span>
+            </a>
+        </nav>
+    </div>
+    <script>
+document.querySelectorAll(".aesthetic-counter").forEach(counter => {
+    const drug = encodeURIComponent(counter.dataset.drug);
+    const display = counter.querySelector(".count-display");
+
+    function applyCompletion(taken, perDay) {
+        if (taken === perDay) {
+            display.textContent = "Completed!";
+            display.classList.add("completed");
+        } else {
+            display.textContent = `${taken} / ${perDay}`;
+            display.classList.remove("completed");
+        }
+    }
+
+    // ✅ RUN ON PAGE LOAD
+    const initialText = display.textContent;
+    const [takenStr, perDayStr] = initialText.split("/");
+    let taken = Number(takenStr.trim());
+    let perDay = Number(perDayStr.trim());
+
+    applyCompletion(taken, perDay);
+
+    // ➕ Increment
+    counter.querySelector(".increment").addEventListener("click", () => {
+        fetch(`/update_taken/${drug}/increment`, { method: "POST" })
+            .then(res => res.json())
+            .then(data => applyCompletion(
+                Number(data.taken_today),
+                Number(data.per_day)
+            ))
+            .catch(err => console.error(err));
+    });
+
+    // ➖ Decrement
+    counter.querySelector(".decrement").addEventListener("click", () => {
+        fetch(`/update_taken/${drug}/decrement`, { method: "POST" })
+            .then(res => res.json())
+            .then(data => applyCompletion(
+                Number(data.taken_today),
+                Number(data.per_day)
+            ))
+            .catch(err => console.error(err));
+    });
+});
+</script>
+
+
+
+</body>
+</html>

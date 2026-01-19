@@ -1,0 +1,200 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.app-shell {
+    width: 100%;
+    max-width: 440px;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 24px;
+}
+
+.login-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-header h1 {
+    font-size: 52px;
+    font-weight: 700;
+    margin: 20px 0 40px 0;
+    position: relative;
+    color: #000;
+}
+
+.login-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+}
+
+.input-group label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    margin-left: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #d1d5db;
+    border-radius: 32px;
+    background-color: #ebebeb;
+    font-size: 16px;
+    color: #374151;
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.input-wrapper input::placeholder {
+    color: #999;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4b9e8f;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.forgot-link {
+    text-align: right;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    margin-top: 4px;
+    padding-right: 8px;
+}
+
+.btn-signin {
+    margin-top: 10px;
+    padding: 18px;
+    background-color: #43A08C;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-signin:hover {
+    background-color: #3a8b7a;
+}
+
+.btn-signin:active {
+    transform: scale(0.98);
+}
+
+.separator {
+    width: 100%;
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid #000;
+}
+
+.separator span {
+    padding: 0 15px;
+}
+
+.social-login {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.social-btn {
+    flex: 1;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-weight: 600;
+    color: #888;
+    font-size: 14px;
+}
+
+.social-btn svg {
+    flex-shrink: 0;
+}
+
+.login-footer {
+    margin-top: auto;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+
+.signup-link {
+    color: #4b9e8f;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+@media (max-width: 400px) {
+    .login-header h1 { font-size: 42px; }
+    .btn-signin { font-size: 26px; }
+    .input-wrapper input { padding: 18px 20px; font-size: 16px; }
+}

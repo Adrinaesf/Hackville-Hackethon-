@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedEasy - My Prescriptions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/perscription.css">
+</head>
+<body>
+    <div class="app-shell list-screen">
+        <header class="pattern-header">
+            <div class="pattern-overlay"></div>
+            <h1 class="page-title">My Prescriptions</h1>
+        </header>
+
+        <main class="list-container">
+            <div class="prescription-list">
+                {% if prescriptions %}
+                    {% for drug in prescriptions %}
+                        <a href="{{ url_for('drug_info', drug_name=drug.drug_name) }}" class="drug-link">
+                            <div class="prescription-card">
+                                <div class="card-info">
+                                    <span class="drug-label">{{ drug.drug_name }}</span>
+                                    <a href="{{ url_for('delete_prescription', drug_name=drug.drug_name) }}" class="delete-action">Delete</a>
+                                </div>
+                                <div class="pill-graphic">
+                                    <div class="pill-half white"></div>
+                                    <div class="pill-half gray"></div>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+
+                {% else %}
+                    <p id="no-prescriptions"> No prescriptions yet. <br> Click the "+" button to add one!</p>
+                {% endif %}
+            </div>
+
+            <button class="add-prescription-btn" aria-label="Add Prescription" onclick="window.location.href='{{ url_for('new_perscription') }}';">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+            </button>
+        </main>
+
+        <nav class="floating-nav">
+            <a href="{{ url_for('homescreen') }}" class="nav-item">
+                <div class="nav-item">
+                <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="2" fill="none">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    <path d="M9 12h6"></path><path d="M9 16h6"></path><path d="M9 20h6"></path>
+                </svg>
+                <span>My Dashboard</span>
+            </div>
+            </a>
+            <div class="nav-item active">
+                <div class="pill-icon-nav"></div>
+                <span>My Prescriptions</span>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

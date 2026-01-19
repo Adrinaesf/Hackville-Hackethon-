@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width", initial-scale="1" />
+        <!-- This is a block and it is used for templates: -->
+        <title>
+            {% block title %}Default Title{% endblock %}
+        </title>
+    
+          {% block headContent %}{% endblock %}
+        
+
+    </head>
+    
+    <body>
+        <!-- Creating a header --> 
+
+        <div class="container_header"> 
+    
+
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert {{ category }}">
+                    {{ message }}
+                <button class="close-btn">&times;</button>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    
+        <!-- Loading from static, a javascript file -->
+        <script 
+            type="text/javascript"
+            src="{{ url_for('static', filename='base.js')}}"> 
+        </script>
+
+
+
+    </body>
+</html>

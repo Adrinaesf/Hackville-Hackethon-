@@ -1,0 +1,443 @@
+@font-face {
+    font-family: 'dyslexic'; /* Name you will use in CSS */
+    src: url('./fonts/OpenDyslexic-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.dyslexic {
+    font-family: 'dyslexic', sans-serif !important;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent the entire page from scrolling */
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+}
+
+.hero-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.font-chng-btn {
+    display: block;
+    margin-left: 140px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    align-items: center;
+    appearance: none;
+    background-color: #fcfcfd;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow:
+        rgba(45, 35, 66, 0.2) 0 2px 4px,
+        rgba(45, 35, 66, 0.15) 0 7px 13px -3px,
+        #d6d6e7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395a;
+    cursor: pointer;
+    display: inline-flex;
+    height: 34px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition:
+        box-shadow 0.15s,
+        transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+    display: block;
+}
+
+.font-decrease {
+    display: block;
+    margin-left: 120px;
+    align-items: center;
+    appearance: none;
+    background-color: #fcfcfd;
+    border-radius: 999px;
+    border-width: 0;
+    box-shadow:
+        rgba(45, 35, 66, 0.2) 0 2px 4px,
+        rgba(45, 35, 66, 0.15) 0 7px 13px -3px,
+        #d6d6e7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395a;
+    cursor: pointer;
+    display: inline-flex;
+    height: 34px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition:
+        box-shadow 0.15s,
+        transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+    display: block;
+}
+.font-decrease:focus {
+    box-shadow:
+      #d6d6e7 0 0 0 1.5px inset,
+      rgba(45, 35, 66, 0.4) 0 2px 4px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+      #d6d6e7 0 -3px 0 inset;
+  }
+  
+  .font-decrease:hover {
+    box-shadow:
+      rgba(45, 35, 66, 0.3) 0 4px 8px,
+      rgba(45, 35, 66, 0.2) 0 7px 13px -3px,
+      #d6d6e7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+
+.font-increase {
+    display: block;
+    margin-left: 5px;
+    align-items: center;
+    appearance: none;
+    background-color: #fcfcfd;
+    border-radius: 999px;
+    border-width: 0;
+    box-shadow:
+        rgba(45, 35, 66, 0.2) 0 2px 4px,
+        rgba(45, 35, 66, 0.15) 0 7px 13px -3px,
+        #d6d6e7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395a;
+    cursor: pointer;
+    display: inline-flex;
+    height: 34px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition:
+        box-shadow 0.15s,
+        transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+    display: block;
+
+}
+.listen-btn{
+    display: block;
+    margin-left: 160px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    align-items: center;
+    appearance: none;
+    background-color: #fcfcfd;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow:
+        rgba(45, 35, 66, 0.2) 0 2px 4px,
+        rgba(45, 35, 66, 0.15) 0 7px 13px -3px,
+        #d6d6e7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395a;
+    cursor: pointer;
+    display: inline-flex;
+    height: 34px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition:
+        box-shadow 0.15s,
+        transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+    display: block;
+}
+.listen-btn:hover {
+    box-shadow:
+      rgba(45, 35, 66, 0.3) 0 4px 8px,
+      rgba(45, 35, 66, 0.2) 0 7px 13px -3px,
+      #d6d6e7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.listen-btn:focus {
+    box-shadow:
+      #d6d6e7 0 0 0 1.5px inset,
+      rgba(45, 35, 66, 0.4) 0 2px 4px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+      #d6d6e7 0 -3px 0 inset;
+  }
+  
+.font-increase:hover {
+    box-shadow:
+      rgba(45, 35, 66, 0.3) 0 4px 8px,
+      rgba(45, 35, 66, 0.2) 0 7px 13px -3px,
+      #d6d6e7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.font-increase:focus {
+    box-shadow:
+      #d6d6e7 0 0 0 1.5px inset,
+      rgba(45, 35, 66, 0.4) 0 2px 4px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+      #d6d6e7 0 -3px 0 inset;
+  }
+  
+  .font-chng-btn:hover {
+    box-shadow:
+      rgba(45, 35, 66, 0.3) 0 4px 8px,
+      rgba(45, 35, 66, 0.2) 0 7px 13px -3px,
+      #d6d6e7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+.pill-frame {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 440px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #ffffff;
+}
+
+/* Fixed background pill pattern at the top */
+.background-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 160px;
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='10' width='40' height='14' rx='7' fill='%232d4d44' fill-opacity='0.08' transform='rotate(-45 30 17)' /%3E%3Crect x='65' y='65' width='40' height='14' rx='7' fill='%232d4d44' fill-opacity='0.08' transform='rotate(-45 85 72)' /%3E%3C/svg%3E");
+    background-size: 100px 100px;
+    z-index: 1;
+    margin-bottom: 30px;
+}
+
+/* Main Card that covers the screen and contains the scrollable area */
+.main-card {
+    flex: 1;
+    margin-top: 160px; /* Shows the white pattern above this card */
+    background-color: #2d4d44;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 10;
+    overflow: hidden; /* Essential: keeps the scrolling contained inside */
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
+}
+
+.card-header {
+    padding: 24px 24px 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0; /* Header stays fixed at top */
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+.close-button:hover {
+    opacity: 1;
+}
+
+/* The actual scrollable content area */
+.scroll-content {
+    flex: 1;
+    overflow-y: auto; /* Enable vertical scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+    padding: 0 24px 60px;
+    color: #ffffff;
+}
+
+/* Custom Scrollbar Styling (Optional, hides it for a cleaner look) */
+.scroll-content::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
+/* Content Styles */
+.hero {
+    margin-bottom: 40px;
+    padding-top: 10px;
+}
+
+.hero-pill {
+    width: 175px;
+    height: 75px;
+    border: 5px solid #ffffff;
+    border-radius: 50px;
+    overflow: hidden;
+    transform: rotate(-30deg);
+    margin: 15px 0 40px 10px;
+    display: flex;
+}
+
+.pill-half.white {
+    background-color: #ffffff;
+    flex: 1;
+}
+
+.pill-half.grey {
+    background-color: #44645c; /* Lighter shade of the background teal */
+    flex: 1;
+}
+
+.brand-title {
+    font-size: 60px;
+    text-align: center;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -4px;
+    line-height: 1;
+}
+
+/* Summary Grid */
+.summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.info-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.icon-box {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.value {
+    color: #2d4d44;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.label {
+    color: #2d4d44;
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+/* Text Content Area */
+.details-text {
+    line-height: 1.5;
+}
+
+.heading {
+    font-size: 34px;
+    font-weight: 700;
+    margin: 32px 0 16px 0;
+}
+
+.details-text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.bullet-list {
+    margin: 0 0 32px 0;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.bullet-list li {
+    font-size: 18px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.bullet-list li::marker {
+    color: #ffffff;
+}
+
+@media (max-width: 400px) {
+    .brand-title { font-size: 72px; }
+    .hero-pill { width: 150px; height: 65px; }
+    .heading { font-size: 30px; }
+}

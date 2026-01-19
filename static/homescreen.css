@@ -1,0 +1,279 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.app-shell {
+    width: 100%;
+    max-width: 440px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+    background-color: #e8e8e8;
+}
+
+/* Header with Profile */
+.top-bar {
+    height: 180px;
+    background-color: #35524b;
+    position: relative;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    margin-bottom: -40px; /* Overlap effect */
+    z-index: 1;
+}
+
+.pattern-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='10' width='35' height='12' rx='6' fill='%23ffffff' transform='rotate(-45 27.5 16)' /%3E%3Crect x='60' y='60' width='35' height='12' rx='6' fill='%23ffffff' transform='rotate(-45 77.5 66)' /%3E%3C/svg%3E");
+    background-size: 80px 80px;
+}
+
+.profile-container {
+    position: absolute;
+    top: 30px;
+    right: 24px;
+}
+
+.profile-icon {
+    width: 48px;
+    height: 48px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main Content */
+.content-wrapper {
+    flex: 1;
+    background-color: #e8e8e8;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+    padding: 60px 24px 120px 24px;
+    z-index: 2;
+    overflow-y: auto;
+}
+
+
+
+.greeting-section {
+    margin-bottom: 40px;
+}
+
+.user-greeting {
+    font-size: 48px;
+    font-weight: 700;
+    color: #35524b;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.status-message {
+    font-size: 22px;
+    font-weight: 500;
+    color: #666;
+    margin: 8px 0 0 0;
+}
+
+/* Dashboard Cards */
+.dashboard-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dose-card {
+    background-color: #35524b;
+    border-radius: 20px;
+    padding: 32px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(84, 84, 84, 0.1);
+    transition: box-shadow 0.15s;
+}
+.dose-card:hover {
+    box-shadow: 2px 2px 10px gray;
+}
+
+.drug-name {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 24px 0;
+}
+
+/* Aesthetic Counter */
+.aesthetic-counter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.count-btn {
+    margin-left: 0px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    line-height: 1;
+    transition: opacity 0.15s;
+}
+.count-btn:hover {
+    opacity: 0.6;
+}
+.count-btn:active {
+    opacity: 0.2;
+}
+
+
+.count-btn span {
+    margin-top: -4px; /* Adjust for font centering */
+}
+
+.count-display {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    min-width: 55px;
+    text-align: center;
+}
+
+/* Pill Graphic */
+.pill-graphic {
+    width: 100px;
+    height: 44px;
+    border: 3px solid #ffffff;
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    transform: rotate(-30deg);
+    flex-shrink: 0;
+    margin-top: 10px;
+}
+
+.pill-half {
+    flex: 1;
+}
+
+.pill-half.white {
+    background-color: #ffffff;
+}
+
+.pill-half.gray {
+    background-color: #7a8c88;
+}
+
+/* Floating Navigation */
+.floating-nav {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
+    height: 100px;
+    background-color: #4b9e8f;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 100;
+    transition: box-shadow 0.17s;
+}
+.floating-nav:hover {
+    box-shadow: 2px 2px 10px rgb(161, 160, 160);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-item.active {
+    color: #ffffff;
+}
+
+.pill-icon-nav {
+    width: 44px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    background: linear-gradient(to right, #ffffff 50%, rgba(255,255,255,0.4) 50%);
+    transform: rotate(-30deg);
+    margin-bottom: 2px;
+    opacity: 0.6;
+}
+.nav-item:hover {
+    opacity: 0.9;
+}
+.nav-item.active .pill-icon-nav {
+    opacity: 1;
+}
+
+@media (max-width: 400px) {
+    .user-greeting { font-size: 38px; }
+    .status-message { font-size: 18px; }
+    .drug-name { font-size: 20px; }
+    .count-display { font-size: 22px; }
+    .pill-graphic { width: 85px; height: 38px; }
+    .floating-nav { height: 85px; bottom: 15px; }
+}
+
+.count-display.completed {
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.logout {
+    padding: 7px 16px;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #35524b;
+    background-color: #ffffff;
+
+    border: none;
+    border-radius: 999px;
+
+    cursor: pointer;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                transform 0.15s ease;
+
+    outline: none; /* remove default focus ring */
+    box-shadow: none; /* remove any shadows that create double ovals */
+}
+
+/* Hover */
+.logout:hover {
+    background-color: #35524b;
+    color: #ffffff;
+}

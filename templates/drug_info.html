@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xeljanz - Drug Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/drug_info.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- White top strip with subtle pill pattern -->
+        <div class="background-pattern">
+            <button id="font-toggle-btn" class="font-chng-btn">Read Friendly</button>
+            <button class="font-decrease" id="font-decrease" style="display: inline; ">&#8722;</button>
+            <p class="font_note" style="display: inline">Font Size</p>
+            <button class="font-increase"  id="font-increase" style="display: inline">&#43;</button>
+            <button class="listen-btn" id="listen-btn">🔊 Listen</button> <audio id="tts-player"></audio>
+        </div>
+
+        <!-- The main teal card that scrolls -->
+        <div class="main-card">
+            <header class="card-header">
+                <button class="close-button" aria-label="Close" onclick="window.location.href='{{ url_for('perscriptions') }}';">
+                    <svg viewBox="0 0 24 24" width="40" height="40" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </header>
+
+            <div class="scroll-content">
+                <section class="hero">
+                    <div class="hero-top">
+                        <div class="hero-pill">
+                            <div class="pill-frame">
+                                <div class="pill-half white"></div>
+                                <div class="pill-half grey"></div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <h2 class="brand-title">{{ drug.drug_name }}</h2>
+                </section>
+
+                <section class="summary">
+                    <div class="info-card">
+                        <div class="icon-box">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="#35524b" transform="rotate(-45)">
+                                <rect x="2" y="8" width="20" height="8" rx="4" />
+                                <rect x="12" y="8" width="10" height="8" rx="0" fill-opacity="0.3" />
+                            </svg>
+                        </div>
+                        <div class="text-group">
+                            <span class="value">{{ drug.dosage }}</span>
+                            <span class="label">Daily Dosage</span>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon-box clock">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <circle cx="12" cy="12" r="10" fill="#6eeed6" fill-opacity="0.4" />
+                                <path d="M12 7v5l3 2" stroke="#35524b" stroke-width="2" stroke-linecap="round" fill="none" />
+                            </svg>
+                        </div>
+                        <div class="text-group">
+                            <span class="value">{{ drug.per_day }}x per day</span>
+                        </div>
+                    </div>
+                </section>
+
+                <article class="details-text">
+                    <h2 class="heading">About Drug</h2>
+                    <p>{{ info.about }}</p>
+
+                    <h2 class="heading">Possible Side Effects</h2>
+                    <ul class="bullet-list">
+                        {% for effect in info.side_effects %}
+                            <li>{{ effect }}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <h2 class="heading">Storage</h2>
+                    <p>{{ info.storage }}</p>
+                </article>
+
+                
+            </div>
+        </div>
+    </div>
+<script>
+const fontBtn = document.getElementById('font-toggle-btn');
+const content = document.querySelector('.details-text'); // only the main text
+
+fontBtn.addEventListener('click', () => {
+    // Toggle the dyslexic class on just the content, not the whole body
+    content.classList.toggle('dyslexic');
+
+    // Update button text
+    if (content.classList.contains('dyslexic')) {
+        fontBtn.textContent = 'Normal Font';
+    } else {
+        fontBtn.textContent = 'Read-Friendly';
+    }
+});
+</script>
+
+<script>
+const increaseBtn = document.getElementById('font-increase');
+const decreaseBtn = document.getElementById('font-decrease');
+
+const elements = document.querySelectorAll('.details-text p, .details-text li');
+
+let currentFontSize = 16; // starting font size in px
+const minFontSize = 12;   // minimum font size
+const maxFontSize = 24;   // maximum font size
+
+function updateFontSize() {
+    elements.forEach(el => {
+        el.style.fontSize = currentFontSize + 'px';
+    });
+}
+
+increaseBtn.addEventListener('click', () => {
+    if (currentFontSize < maxFontSize) {
+        currentFontSize += 2; // increase by 2px
+        updateFontSize();
+    }
+});
+
+decreaseBtn.addEventListener('click', () => {
+    if (currentFontSize > minFontSize) {
+        currentFontSize -= 2; // decrease by 2px
+        updateFontSize();
+    }
+});
+
+// Initialize font size on page load
+updateFontSize();
+</script>
+<script>
+const listenBtn = document.getElementById("listen-btn");
+const audio = document.getElementById("tts-player");
+
+listenBtn.addEventListener("click", () => {
+    // If audio src is not set yet, set it
+    if (!audio.src || !audio.src.includes("{{ drug.drug_name }}")) {
+        audio.src = "/tts/drug/{{ drug.drug_name }}";
+    }
+
+    if (audio.paused) {
+        audio.play();
+        listenBtn.textContent = "⏸ Pause";
+    } else {
+        audio.pause();
+        listenBtn.textContent = "🔊 Listen";
+    }
+
+    // Reset button text when audio ends
+    audio.onended = () => {
+        listenBtn.textContent = "🔊 Listen";
+    };
+});
+</script>
+
+
+
+</body>
+</html>
